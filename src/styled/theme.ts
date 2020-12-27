@@ -13,6 +13,6 @@ export const theme: DefaultTheme = {
     l: 900,
   },
   fonts: {
-    primary: 'Arial',
+    primary: 'Commissioner, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Helvetica, Arial, sans-serif',
   },
 };

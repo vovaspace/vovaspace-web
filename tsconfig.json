@@ -22,9 +22,10 @@
     "target": "esnext",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@styled": ["src/styled"] 
+      "@styled": ["src/styled"],
+      "@resources": ["src/resources/*"]
     },
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
 }

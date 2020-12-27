@@ -13,6 +13,9 @@ export interface LayoutProps {
 }
 
 const StyledLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding-right: ${rem(20)};
   padding-left: ${rem(20)};
 
@@ -20,6 +23,10 @@ const StyledLayout = styled.div`
     padding-right: ${rem(80)};
     padding-left: ${rem(80)};
   }
+`;
+
+const StyledContent = styled.div`
+  flex: 1;
 `;
 
 export const Layout: FunctionComponent<LayoutProps> = ({ children, className, title }) => (
@@ -31,7 +38,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children, className, ti
     </Head>
 
     <PageHeader />
-    {children}
+    <StyledContent>{children}</StyledContent>
     <PageFooter />
   </StyledLayout>
 );
