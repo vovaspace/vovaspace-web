@@ -70,6 +70,14 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={themeProviderValue}>
       <Head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XEKJ4GPJ81" />
+        <script
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-XEKJ4GPJ81\');',
+          }}
+        />
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
