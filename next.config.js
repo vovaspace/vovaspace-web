@@ -45,7 +45,7 @@ module.exports = withPreact({
 
     return config;
   },
-
+  target: 'serverless',
   i18n: {
     locales: ['en', 'ru'],
     defaultLocale: 'en',
