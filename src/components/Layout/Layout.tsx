@@ -1,5 +1,4 @@
 import { FunctionComponent, ComponentChildren } from 'preact';
-import Head from 'next/head';
 import styled from 'styled-components';
 
 import { rem, breakpoint } from '@styled';
@@ -9,7 +8,6 @@ import { PageFooter } from '@components/PageFooter';
 export interface LayoutProps {
   children: ComponentChildren;
   className?: string;
-  title: string;
 }
 
 const StyledLayout = styled.div`
@@ -38,12 +36,8 @@ const StyledContent = styled.div`
   flex: 1;
 `;
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children, className, title }) => (
+export const Layout: FunctionComponent<LayoutProps> = ({ children, className }) => (
   <StyledLayout className={className}>
-    <Head>
-      <title>{title}</title>
-    </Head>
-
     <PageHeader />
     <StyledContent>{children}</StyledContent>
     <PageFooter />

@@ -4,6 +4,7 @@ import { FunctionComponent } from 'preact';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { theme as themeProviderValue, variables, convertVariableToCSS } from '@styled';
+import { useLocalization } from '@utils';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -60,25 +61,49 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
-  <ThemeProvider theme={themeProviderValue}>
-    <Head>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
+  const title = useLocalization({
+    en: 'Vladimir Lewandowski',
+    ru: 'Владимир Левандовский',
+  });
 
-      <link rel="alternate" hrefLang="en" href="https://vovaspace.com/en/" />
-      <link rel="alternate" hrefLang="ru" href="https://vovaspace.com/ru/" />
+  return (
+    <ThemeProvider theme={themeProviderValue}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon-apple.png" />
-      <link rel="mask-icon" href="/favicon-mask.svg" color="#f0c1a9" />
-      <link rel="manifest" href="/site.webmanifest" />
-    </Head>
-    <GlobalStyle />
-    <Component {...pageProps} />
-  </ThemeProvider>
-);
+        <title>{title}</title>
+
+        <link rel="alternate" hrefLang="en" href="https://vovaspace.com/en/" />
+        <link rel="alternate" hrefLang="ru" href="https://vovaspace.com/ru/" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-apple.png" />
+        <link rel="mask-icon" href="/favicon-mask.svg" color="#f0c1a9" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <meta name="title" content={title} />
+        <meta name="description" content="" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vovaspace.com/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="https://vovaspace.com/cover.png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://vovaspace.com/" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content="" />
+        <meta property="twitter:image" content="https://vovaspace.com/cover.png" />
+      </Head>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+};
 
 export default App;
