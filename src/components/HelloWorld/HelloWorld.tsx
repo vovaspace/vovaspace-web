@@ -76,8 +76,8 @@ export const HelloWorld: FunctionComponent = () => {
   const localization = useLocalization({
     en: {
       hi: 'Hi!',
-      work: 'Write code',
-      live: 'Live',
+      work: 'Coding',
+      live: 'Living',
       at: 'at',
       in: 'in',
       tambov: 'Tambov',
