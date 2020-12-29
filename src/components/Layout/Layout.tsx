@@ -16,12 +16,21 @@ const StyledLayout = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-right: ${rem(20)};
-  padding-left: ${rem(20)};
+  padding-right: ${rem(24)};
+  padding-left: ${rem(24)};
+
+  ${breakpoint('m')} {
+    padding-right: ${rem(40)};
+    padding-left: ${rem(40)};
+  }
 
   ${breakpoint('l')} {
     padding-right: ${rem(80)};
     padding-left: ${rem(80)};
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
   }
 `;
 
@@ -33,8 +42,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children, className, ti
   <StyledLayout className={className}>
     <Head>
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
     <PageHeader />

@@ -2,6 +2,8 @@ const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const withPreact = require('next-plugin-preact');
 
+const staticPath = 'static/chunks';
+
 module.exports = withPreact({
   webpack(config, options) {
     const { isServer } = options;
@@ -12,8 +14,22 @@ module.exports = withPreact({
         {
           loader: 'file-loader',
           options: {
-            publicPath: '/_next/static/chunks/fonts/',
-            outputPath: `${isServer ? '../' : ''}static/chunks/fonts/`,
+            publicPath: `/_next/${staticPath}/fonts/`,
+            outputPath: `${isServer ? '../' : ''}${staticPath}/fonts/`,
+            name: '[name].[hash].[ext]',
+          },
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\.(png|webp)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: `/_next/${staticPath}/images/`,
+            outputPath: `${isServer ? '../' : ''}${staticPath}/images/`,
             name: '[name].[hash].[ext]',
           },
         },
@@ -25,8 +41,13 @@ module.exports = withPreact({
     // eslint-disable-next-line no-param-reassign
     config.resolve.alias['@styled'] = path.join(__dirname, 'src/styled');
     // eslint-disable-next-line no-param-reassign
-    config.resolve.alias['@resources'] = path.join(__dirname, 'src/resources');
+    config.resolve.alias['@utils'] = path.join(__dirname, 'src/utils');
 
     return config;
+  },
+
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'en',
   },
 });

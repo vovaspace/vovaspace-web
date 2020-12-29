@@ -2,6 +2,7 @@ import { FunctionComponent } from 'preact';
 import styled, { css } from 'styled-components';
 
 import { rem } from '@styled';
+import { useLocalization } from '@utils';
 import { Link } from '@components/Link';
 
 export interface ContactsProps {
@@ -15,6 +16,9 @@ const StyledContacts = styled.ul`
   margin-top: 0;
   margin-bottom: ${rem(-16)};
   list-style: none;
+  font-size: ${rem(18)};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: ${rem(22)};
 `;
 
 const StyledListItem = styled.li<{ breaked?: boolean }>`
@@ -31,11 +35,26 @@ const StyledListItem = styled.li<{ breaked?: boolean }>`
 
 export const Contacts: FunctionComponent<ContactsProps> = ({
   className,
-}) => (
-  <StyledContacts className={className}>
-    <StyledListItem><Link href="https://t.me/vovaspace">Telegram</Link></StyledListItem>
-    <StyledListItem><Link href="https://instagram.com/vovaspace">Instagram</Link></StyledListItem>
-    <StyledListItem><Link href="https://github.com/vovaspace">GitHub</Link></StyledListItem>
-    <StyledListItem breaked><Link href="mailto:me@vovaspace.com">me@vovaspace.com</Link></StyledListItem>
-  </StyledContacts>
-);
+}) => {
+  const localization = useLocalization({
+    en: {
+      telegram: 'Telegram',
+      intagram: 'Instagram',
+      github: 'GitHub',
+    },
+    ru: {
+      telegram: 'Телеграм',
+      intagram: 'Инстаграм',
+      github: 'ГитХаб',
+    },
+  });
+
+  return (
+    <StyledContacts className={className}>
+      <StyledListItem><Link href="https://t.me/vovaspace/">{localization.telegram}</Link></StyledListItem>
+      <StyledListItem><Link href="https://instagram.com/vovaspace/">{localization.intagram}</Link></StyledListItem>
+      <StyledListItem><Link href="https://github.com/vovaspace/">{localization.github}</Link></StyledListItem>
+      <StyledListItem breaked><Link href="mailto:me@vovaspace.com" target="self">me@vovaspace.com</Link></StyledListItem>
+    </StyledContacts>
+  );
+};

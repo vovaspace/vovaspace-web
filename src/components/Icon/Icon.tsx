@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'preact';
+import styled from 'styled-components';
 
 export type IconName = 'arrow-right';
 
@@ -12,13 +13,17 @@ export interface IconProps {
   alt?: string;
 }
 
+const StyledSvg = styled.svg`
+  flex-shrink: 0;
+`;
+
 export const Icon: FunctionComponent<IconProps> = ({ className, name, alt }) => (
-  <svg
+  <StyledSvg
     className={className}
     viewBox="0 0 150 190"
     xmlns="http://www.w3.org/2000/svg"
   >
     {alt && <text fontSize="0">{alt}</text>}
     <path d={iconPath[name]} role="presentation" />
-  </svg>
+  </StyledSvg>
 );

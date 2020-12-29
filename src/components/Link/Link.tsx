@@ -12,13 +12,17 @@ const StyledLink = styled.a`
   color: ${({ theme }) => theme.colors.blue};
   text-decoration: none;
 
-  &:focus,
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+
   &:hover {
     text-decoration: underline;
   }
 
   &:active {
-    color: ${({ theme }) => theme.colors.red};
+    color: ${({ theme }) => theme.colors.pink};
   }
 `;
 
@@ -32,6 +36,7 @@ export const Link: FunctionComponent<LinkProps> = ({
     className={className}
     href={href}
     target={`_${target}`}
+    rel={target === 'blank' ? 'noopener' : undefined}
   >
     {children}
   </StyledLink>

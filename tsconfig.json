@@ -23,7 +23,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@styled": ["src/styled"],
-      "@resources": ["src/resources/*"]
+      "@utils": ["src/utils"],
     },
   },
   "exclude": ["node_modules"],

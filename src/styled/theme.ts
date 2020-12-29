@@ -1,18 +1,21 @@
 import { DefaultTheme } from 'styled-components';
 
+import { variables, convertVariableToTheme } from './variables';
+
 export const theme: DefaultTheme = {
   baseFontSize: 16,
-  colors: {
-    dark: '#050505',
-    blue: '#007aff',
-    red: '#ff3b30',
-  },
   breakpoints: {
-    s: 20,
-    m: 45,
-    l: 900,
+    m: 624,
+    l: 928,
+    xl: 1224,
   },
   fonts: {
-    primary: 'Commissioner, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Helvetica, Arial, sans-serif',
+    primary: 'Manrope, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Helvetica, Arial, sans-serif',
   },
+  fontWeights: {
+    regular: 400,
+    medium: 500,
+    bold: 700,
+  },
+  colors: convertVariableToTheme(variables.colors.light, 'color'),
 };

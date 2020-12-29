@@ -9,30 +9,17 @@ export interface TextWithIconProps extends Pick<IconProps, 'alt'> {
   icon: IconName;
 }
 
-const iconMarginSize = 0.125;
-const hangingOffsetSize = 0.125;
-
 const StyledTextWithIcon = styled.span`
-  &::before {
-    display: inline-block;
-    margin-right: ${hangingOffsetSize + iconMarginSize}em;
-    content: ' ';
-    width: 0;
-  }
-`;
-
-const StyledNoWrap = styled.span`
   display: inline-flex;
   align-items: baseline;
-  margin-left: ${-hangingOffsetSize - iconMarginSize}em;
 `;
 
 const StyledIcon = styled(Icon)<IconProps>`
   align-self: center;
   height: 1em;
-  margin-right: ${iconMarginSize}em;
-  margin-left: ${iconMarginSize}em;
-  transform: translateY(0.0625em);
+  margin-right: 0.125em;
+  margin-left: 0.125em;
+  transform: translateY(0.035em);
 `;
 
 export const TextWithIcon: FunctionComponent<TextWithIconProps> = ({
@@ -42,9 +29,7 @@ export const TextWithIcon: FunctionComponent<TextWithIconProps> = ({
   alt,
 }) => (
   <StyledTextWithIcon className={className}>
-    <StyledNoWrap>
-      <StyledIcon name={icon} alt={alt} />
-      {children}
-    </StyledNoWrap>
+    <StyledIcon name={icon} alt={alt} />
+    {children}
   </StyledTextWithIcon>
 );

@@ -4,7 +4,7 @@ import { HelloWorld } from '@components/HelloWorld';
 import { Layout } from '@components/Layout';
 
 const IndexPage: FunctionComponent = () => (
-  <Layout title="Hello">
+  <Layout title="Владимир Левандовский">
     <HelloWorld />
   </Layout>
 );
