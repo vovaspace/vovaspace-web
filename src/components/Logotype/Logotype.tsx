@@ -20,6 +20,10 @@ const StyledLogotype = styled.div`
   }
 `;
 
+const StyledMemoji = styled(Memoji)`
+  margin-left: ${rem(-8)};
+`;
+
 const StyledTitle = styled.h1`
   width: 8em;
   margin-top: 0.6em;
@@ -48,7 +52,7 @@ export const Logotype: FunctionComponent<LogotypeProps> = ({
   className,
 }) => (
   <StyledLogotype className={className}>
-    <Memoji />
+    <StyledMemoji />
     <StyledTitle>
       {useLocalization({
         en: 'Vladimir Lewandowski',
