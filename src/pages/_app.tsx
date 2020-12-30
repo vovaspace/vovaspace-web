@@ -70,11 +70,11 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={themeProviderValue}>
       <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XEKJ4GPJ81" />
         <script
+          type="text/javascript"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
-            __html: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-XEKJ4GPJ81\');',
+            __html: '(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(70907224,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true}); ',
           }}
         />
 
@@ -108,6 +108,9 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
         <meta property="twitter:description" content="" />
         <meta property="twitter:image" content="https://vovaspace.com/cover.png" />
       </Head>
+      <noscript>
+        <div><img src="https://mc.yandex.ru/watch/70907224" style={{ position: 'absolute', left: -9999 }} alt="" /></div>
+      </noscript>
       <GlobalStyle />
       <Component {...pageProps} />
     </ThemeProvider>
