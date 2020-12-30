@@ -107,10 +107,10 @@ export const HelloWorld: FunctionComponent = () => {
         {' '}
         {localization.in}
         {' '}
-        <StyledTextSection as="del">
+        <StyledTextSection as="del" dateTime="2016-09-01">
           <StyledLineThrough>{localization.tambov}</StyledLineThrough>
         </StyledTextSection>
-        <StyledTextSection as="del">
+        <StyledTextSection as="del" dateTime="2020-08-29">
           <TextWithIcon icon="arrow-right" alt="→">
             <StyledLineThrough>{localization.moscow}</StyledLineThrough>
           </TextWithIcon>
@@ -125,7 +125,7 @@ export const HelloWorld: FunctionComponent = () => {
         {' '}
         {localization.at}
         {' '}
-        <StyledTextSection as="del">
+        <StyledTextSection as="del" dateTime="2020-10-19">
           <StyledLineThrough>ProIT</StyledLineThrough>
         </StyledTextSection>
         <StyledTextSection>
