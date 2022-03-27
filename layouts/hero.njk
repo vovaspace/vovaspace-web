@@ -1,0 +1,50 @@
+---
+layout: base.njk
+---
+{% macro places(places) %}
+    {% for place in places %}
+        {% set tag = 'del' if place.leaveAt else 'span' %}
+
+        <{{ tag }}
+            class="{{ 'text text_with-line-through' if loop.first else 'text-with-icon' }} hero__place"
+            {{ 'datetime=' + place.leaveAt if place.leaveAt }}
+        >
+            {% if not loop.first %}
+                <svg class="icon text-with-icon__icon" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg">
+                    <text fontSize="0">→</text>
+                    <path d="M73 133.5l22.3-19.7-64.5 2V97.8l64 .8L73 81.1l11.2-11.7 35 36.3-34.5 39-11.8-11.2z" role="presentation" />
+                </svg>
+            {% endif %}
+
+            {% if loop.first or not place.leaveAt %}
+                {{ place.name | i18n }}{{ '.' if loop.last }}
+            {% else %}
+                <span class="text text_with-line-through">{{ place.name | i18n }}</span>{{ '.' if loop.last }}
+            {% endif %}
+        </{{ tag }}>
+
+        {% if not loop.last %}
+            &#32;
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<main class="hero page__body page__body_fullheight">
+    <p class="hero__section">{{ i18n.hi | i18n }}</p>
+
+    <section class="hero__section">
+        <h2 class="hero__title">{{ i18n.living | i18n }}</h2>
+        &#32;
+        {{ i18n.in | i18n }}
+        &#32;
+        {{ places(cities) }}
+    </section>
+
+    <section class="hero__section">
+        <h2 class="hero__title">{{ i18n.coding | i18n }}</h2>
+        &#32;
+        {{ i18n.at | i18n }}
+        &#32;
+        {{ places(workplaces) }}
+    </section>
+</main>

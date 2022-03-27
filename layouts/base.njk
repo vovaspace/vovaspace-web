@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+    <title>{{ metadata.title | i18n }}</title>
+
+    <meta name="title" content="{{ metadata.title | i18n }}">
+    <meta name="description" content="{{ metadata.description | i18n }}">
+
+    {% if locale == 'en' %}
+      <link rel="alternate" hreflang="ru" href="{{ metadata.url + 'ru/' | url }}">
+    {% else %}
+      <link rel="alternate" hreflang="en" href="{{ metadata.url | url }}">
+    {% endif %}
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-apple.png">
+    <link rel="mask-icon" color="#f0c1a9" href="/favicon-mask.svg">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ metadata.home | i18n }}">
+    <meta property="og:title" content="{{ metadata.title | i18n }}">
+    <meta property="og:description" content="{{ metadata.description | i18n }}">
+    <meta property="og:image" content="{{ metadata.url + 'cover.png' }}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ metadata.home | i18n }}">
+    <meta property="twitter:title" content="{{ metadata.title | i18n }}">
+    <meta property="twitter:description" content="{{ metadata.description | i18n }}">
+    <meta property="twitter:image" content="{{ metadata.url + 'cover.png' }}">
+
+    {% include 'styles.njk' %}
+  </head>
+  <body class="page">
+    <header class="page__header">
+      <span class="logotype">
+        <picture class="memoji logotype__memoji">
+          <source srcset="/memoji.webp, /memoji@2x.webp 2x, /memoji@3x.webp 3x" type="image/webp">
+          <source srcset="/memoji.png, /memoji@2x.png 2x, /memoji@3x.png 3x" type="image/png">
+          <img class="memoji__image" src="/memoji@2x.png" alt="Memoji" width="69" height="80" role="presentation">
+        </picture>
+        <h1 class="logotype__text">{{ metadata.title | i18n }}</h1>
+      </span>
+    </header>
+    
+    {{ content | safe }}
+
+    <footer class="page__footer">
+      <ul class="contacts">
+        {% for social in socials %}
+          <li class="contacts__item">
+            <a href="{{ social.url }}" target="_blank" rel="noreferrer noopener">{{ social.name | i18n }}</a>
+          </li>
+        {% endfor %}
+        <li class="contacts__item contacts__item_breaked" >
+          <a href="{{ 'mailto:' + metadata.email }}" target="self">{{ metadata.email }}</a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

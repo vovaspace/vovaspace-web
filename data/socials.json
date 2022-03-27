@@ -1,0 +1,23 @@
+[
+  {
+    "name": {
+      "en": "Telegram",
+      "ru": "Телеграм"
+    },
+    "url": "https://t.me/vovaspace/"
+  },
+  {
+    "name": {
+      "en": "LinkedIn",
+      "ru": "ЛинкедИн"
+    },
+    "url": "https://www.linkedin.com/in/vovaspace/"
+  },
+  {
+    "name": {
+      "en": "GitHub",
+      "ru": "ГитХаб"
+    },
+    "url": "https://github.com/vovaspace/"
+  }
+]
