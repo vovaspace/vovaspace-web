@@ -1,0 +1,22 @@
+[
+  {
+    "name": {
+      "en": "ProIT",
+      "ru": "ПроИТ"
+    },
+    "leaveAt": "2020-10-19"
+  },
+  {
+    "name": {
+      "en": "Atlas Delivery",
+      "ru": "Атлас Деливери"
+    },
+    "leaveAt": "2021-12-01"
+  },
+  {
+    "name": {
+      "en": "Raiffeisen Bank",
+      "ru": "Райффайзен Банке"
+    }
+  }
+]
