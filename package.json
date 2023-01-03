@@ -8,10 +8,10 @@
     "code:fix": "prettier --write ."
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "csso": "^5.0.3",
-    "html-minifier-terser": "^7.0.0-alpha.2",
-    "prettier": "^2.6.1"
+    "@11ty/eleventy": "^1.0.2",
+    "csso": "^5.0.5",
+    "html-minifier-terser": "^7.1.0",
+    "prettier": "^2.8.1"
   },
   "license": "MIT"
 }
