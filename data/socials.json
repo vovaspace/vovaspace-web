@@ -8,6 +8,13 @@
   },
   {
     "name": {
+      "en": "Instagram",
+      "ru": "Инстаграм"
+    },
+    "url": "https://instagram.com/vovaspace/"
+  },
+  {
+    "name": {
       "en": "LinkedIn",
       "ru": "ЛинкедИн"
     },
