@@ -5,7 +5,7 @@
   font-weight: 400;
   src: url('/Manrope-400.woff2') format('woff2'),
     url('/Manrope-400.woff') format('woff'),
-    url('/fonts/Manrope-400.ttf') format('truetype');
+    url('/Manrope-400.ttf') format('truetype');
 }
 
 @font-face {
